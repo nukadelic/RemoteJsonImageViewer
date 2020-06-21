@@ -20,8 +20,12 @@ public class PUIMouseTouch : MonoBehaviour
         rect = GetComponent<RectTransform>( );
     }
 
+    Vector3 mouseDownPos;
+
     void MouseDown( ) 
     {
+        mouseDownPos = GetPoint( );
+
         OnDown?.Invoke( );
     }
 
@@ -82,7 +86,8 @@ public class PUIMouseTouch : MonoBehaviour
 
                 if( InArea( Input.mousePosition ) )
                 {
-                    MouseClick( );
+                    var dist = Input.mousePosition - mouseDownPos;
+                    if( dist.magnitude < 10 ) MouseClick( );
                 }
             }
         }
@@ -106,7 +111,8 @@ public class PUIMouseTouch : MonoBehaviour
 
                 if( InArea( touch.position ) )
                 {
-                    MouseClick( );
+                    var dist = Input.mousePosition - mouseDownPos;
+                    if(dist.magnitude < 10) MouseClick( );
                 }
             }
         }

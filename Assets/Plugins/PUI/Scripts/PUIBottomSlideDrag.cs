@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class PUIBottomSlideDrag : MonoBehaviour
 {
-    [SerializeField] PUIMouseTouch overlayArea;
-    [SerializeField] PUIMouseTouch dragArea;
-    [SerializeField] RectTransform popUp;
-    [SerializeField] Image overlay;
+    [SerializeField] PUIMouseTouch overlayArea = null;
+    [SerializeField] PUIMouseTouch dragArea = null;
+    [SerializeField] RectTransform popUp = null;
+    [SerializeField] Image overlay = null;
     
     [SerializeField, Range(0f,1f)] 
     float overlayAlpha = 0.6f;
