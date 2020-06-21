@@ -12,6 +12,8 @@ public class PUIButton : MonoBehaviour
 
     public UnityEvent EventClick;
 
+    public event System.Action<PUIButton> OnClick;
+
     PUIEase ease;
     ProceduralImage img;
     PUIMouseTouch input;
@@ -57,8 +59,7 @@ public class PUIButton : MonoBehaviour
 
     void MouseClick()
     {
-        Debug.Log( "CLick!" );
-
         EventClick?.Invoke( );
+        OnClick?.Invoke( this );
     }
 }
